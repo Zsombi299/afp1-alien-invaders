@@ -31,8 +31,8 @@
             StartButton = new Button();
             SettingsButton = new Button();
             ExitButton = new Button();
-            pictureBox1 = new PictureBox();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            Spaceship = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)Spaceship).BeginInit();
             SuspendLayout();
             // 
             // StartButton
@@ -64,13 +64,15 @@
             ExitButton.UseVisualStyleBackColor = true;
             ExitButton.Click += ExitButton_Click;
             // 
-            // pictureBox1
+            // Spaceship
             // 
-            pictureBox1.Location = new Point(325, 361);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(125, 62);
-            pictureBox1.TabIndex = 3;
-            pictureBox1.TabStop = false;
+            Spaceship.BackgroundImageLayout = ImageLayout.None;
+            Spaceship.Location = new Point(347, 357);
+            Spaceship.Name = "Spaceship";
+            Spaceship.Size = new Size(76, 36);
+            Spaceship.SizeMode = PictureBoxSizeMode.AutoSize;
+            Spaceship.TabIndex = 3;
+            Spaceship.TabStop = false;
             // 
             // Form1
             // 
@@ -78,14 +80,15 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Black;
             ClientSize = new Size(800, 450);
-            Controls.Add(pictureBox1);
+            Controls.Add(Spaceship);
             Controls.Add(ExitButton);
             Controls.Add(SettingsButton);
             Controls.Add(StartButton);
             Name = "Form1";
             Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)Spaceship).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -93,6 +96,6 @@
         private Button StartButton;
         private Button SettingsButton;
         private Button ExitButton;
-        private PictureBox pictureBox1;
+        private PictureBox Spaceship;
     }
 }
