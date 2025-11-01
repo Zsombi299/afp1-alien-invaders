@@ -5,22 +5,29 @@ using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace afp1_alien_invaders
-{
-    internal class Entity
-    {
+namespace afp1_alien_invaders {
+    internal class Entity {
         protected int xCoord;
         protected int yCoord;
         protected string name;
         protected Image txtr;
+        protected bool xSet = false;
+
+        public int XCoord { 
+            get { return xCoord; }
+            set {
+                if(!xSet)
+                    xCoord = value;
+            }
+        }
+        public int YCoord { get; }
 
         protected Entity(string name, Image tytr) {
             this.name = name;
             this.txtr = tytr;
         }
 
-        protected virtual void Move(int yCoord)
-        {
+        protected virtual void Move(int yCoord) {
             this.yCoord++;
         }
 
