@@ -53,6 +53,7 @@
             SettingsButton.TabIndex = 1;
             SettingsButton.Text = "Beállítások";
             SettingsButton.UseVisualStyleBackColor = true;
+            SettingsButton.Click += SettingsButton_Click;
             // 
             // ExitButton
             // 
