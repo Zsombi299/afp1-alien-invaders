@@ -13,7 +13,6 @@ namespace afp1_alien_invaders
         List<PictureBox> bullets = new List<PictureBox>();
         Button exitButton;
 
-
         public Form1()
         {
             KeyPreview = true;
@@ -69,22 +68,25 @@ namespace afp1_alien_invaders
 
         void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Right || e.KeyCode == Keys.A)
+            if (gameOn)
             {
-                Spaceship.Left += 10;
-            }
-            else if (e.KeyCode == Keys.Left || e.KeyCode == Keys.D)
-            {
-                Spaceship.Left -= 10;
-            }
-            if (e.KeyCode == Keys.Space)
-            {
-                Shoot();
+                if (e.KeyCode == Keys.Right || e.KeyCode == Keys.D)
+                {
+                    Spaceship.Left += 10;
+                }
+                else if (e.KeyCode == Keys.Left || e.KeyCode == Keys.A)
+                {
+                    Spaceship.Left -= 10;
+                }
+                if (e.KeyCode == Keys.B)
+                {
+                    Shoot();
+                }
             }
         }
         void Shoot()
         {
-            PictureBox bullet = new PictureBox()
+            PictureBox bullet = new()
             {
                 Size = new Size(5, 20),
                 BackColor = Color.White,
@@ -114,6 +116,7 @@ namespace afp1_alien_invaders
 
         void EndGame()
         {
+            gameOn = false;
             exitButton.Hide();
             StartButton.Show();
             StartButton.Text = "Újra";
