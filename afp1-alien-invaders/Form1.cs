@@ -9,8 +9,8 @@ namespace afp1_alien_invaders
         public static int SPACESHIP_DAMAGE = 20;
         public static int ALIEN_HEALTH = 60;
         Player player;
-        List<PictureBox> aliens = new List<PictureBox>();
-        List<PictureBox> bullets = new List<PictureBox>();
+        List<PictureBox> aliens = [];
+        List<PictureBox> bullets = [];
         Button exitButton;
 
         public Form1()
@@ -31,7 +31,7 @@ namespace afp1_alien_invaders
 
         private void ExitButton_Click(object sender, EventArgs e)
         {
-            Exit exitForm = new Exit(this);
+            Exit exitForm = new(this);
             exitForm.ShowDialog();
         }
 
@@ -42,14 +42,14 @@ namespace afp1_alien_invaders
             Spaceship.Image = image;
             SpawnAliens(ALIEN_ROWS, ALIEN_COLS);
             CreateExitButton();
-
             gameOn = true;
+            bulletTimer.Start();
         }
 
         void SpawnAliens(int r, int c)
         {
             Image alienImage = Image.FromFile(Path.Combine(Application.StartupPath, "Images", "Alien.png"));
-            Enemy enemy = new Enemy(ALIEN_HEALTH, "alien" + r + c, alienImage, player);
+            Enemy enemy = new(ALIEN_HEALTH, "alien" + r + c, alienImage, player);
             for (int i = 0; i < r; i++)
             {
                 for (int j = 0; j < c; j++)
@@ -70,11 +70,11 @@ namespace afp1_alien_invaders
         {
             if (gameOn)
             {
-                if (e.KeyCode == Keys.Right || e.KeyCode == Keys.D)
+                if (e.KeyCode == Keys.Right || e.KeyCode == Keys.E)
                 {
                     Spaceship.Left += 10;
                 }
-                else if (e.KeyCode == Keys.Left || e.KeyCode == Keys.A)
+                else if (e.KeyCode == Keys.Left || e.KeyCode == Keys.Q)
                 {
                     Spaceship.Left -= 10;
                 }
@@ -97,6 +97,18 @@ namespace afp1_alien_invaders
             };
             Controls.Add(bullet);
             bullets.Add(bullet);
+            bulletTimer.Tick += (s, e) =>
+            {
+                bullet.Top -= 25;
+                if (bullet.Top < 0)
+                {
+                    Controls.Remove(bullet);
+                    bullets.Remove(bullet);
+                    bullet.Dispose();
+                }
+            };
+          //if (bullets.Count == 0)
+        //    bulletTimer.Stop();
         }
 
         void CreateExitButton()
@@ -117,6 +129,7 @@ namespace afp1_alien_invaders
         void EndGame()
         {
             gameOn = false;
+            bulletTimer.Stop();
             exitButton.Hide();
             StartButton.Show();
             StartButton.Text = "Újra";
@@ -126,7 +139,7 @@ namespace afp1_alien_invaders
 
         private void SettingsButton_Click(object sender, EventArgs e)
         {
-            Settings settingsForm = new Settings();
+            Settings settingsForm = new();
             settingsForm.ShowDialog();
         }
     }

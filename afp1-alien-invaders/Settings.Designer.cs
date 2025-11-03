@@ -42,9 +42,14 @@
             AliensHealth = new Label();
             SaveButton = new Button();
             CancelButton = new Button();
+            SpaceshipDamage = new Label();
+            SpaceshipDamageNumber = new TrackBar();
+            SpaceshipDamageTen = new Label();
+            SpaceshipDamageHundred = new Label();
             ((System.ComponentModel.ISupportInitialize)AlienRowsNumber).BeginInit();
             ((System.ComponentModel.ISupportInitialize)AlienColsNumber).BeginInit();
             ((System.ComponentModel.ISupportInitialize)AliensHealthNumber).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)SpaceshipDamageNumber).BeginInit();
             SuspendLayout();
             // 
             // AlienRowsNumber
@@ -173,11 +178,53 @@
             CancelButton.UseVisualStyleBackColor = true;
             CancelButton.Click += CancelButton_Click;
             // 
+            // SpaceshipDamage
+            // 
+            SpaceshipDamage.AutoSize = true;
+            SpaceshipDamage.Location = new Point(27, 231);
+            SpaceshipDamage.Name = "SpaceshipDamage";
+            SpaceshipDamage.Size = new Size(113, 20);
+            SpaceshipDamage.TabIndex = 14;
+            SpaceshipDamage.Text = "Sebzés mértéke";
+            // 
+            // SpaceshipDamageNumber
+            // 
+            SpaceshipDamageNumber.Location = new Point(216, 231);
+            SpaceshipDamageNumber.Maximum = 100;
+            SpaceshipDamageNumber.Minimum = 10;
+            SpaceshipDamageNumber.Name = "SpaceshipDamageNumber";
+            SpaceshipDamageNumber.Size = new Size(130, 56);
+            SpaceshipDamageNumber.TabIndex = 15;
+            SpaceshipDamageNumber.TickFrequency = 20;
+            SpaceshipDamageNumber.Value = 10;
+            // 
+            // SpaceshipDamageTen
+            // 
+            SpaceshipDamageTen.AutoSize = true;
+            SpaceshipDamageTen.Location = new Point(187, 238);
+            SpaceshipDamageTen.Name = "SpaceshipDamageTen";
+            SpaceshipDamageTen.Size = new Size(25, 20);
+            SpaceshipDamageTen.TabIndex = 16;
+            SpaceshipDamageTen.Text = "10";
+            // 
+            // SpaceshipDamageHundred
+            // 
+            SpaceshipDamageHundred.AutoSize = true;
+            SpaceshipDamageHundred.Location = new Point(364, 238);
+            SpaceshipDamageHundred.Name = "SpaceshipDamageHundred";
+            SpaceshipDamageHundred.Size = new Size(33, 20);
+            SpaceshipDamageHundred.TabIndex = 17;
+            SpaceshipDamageHundred.Text = "100";
+            // 
             // Settings
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(450, 372);
+            Controls.Add(SpaceshipDamageHundred);
+            Controls.Add(SpaceshipDamageTen);
+            Controls.Add(SpaceshipDamageNumber);
+            Controls.Add(SpaceshipDamage);
             Controls.Add(CancelButton);
             Controls.Add(SaveButton);
             Controls.Add(AliensHealth);
@@ -197,6 +244,7 @@
             ((System.ComponentModel.ISupportInitialize)AlienRowsNumber).EndInit();
             ((System.ComponentModel.ISupportInitialize)AlienColsNumber).EndInit();
             ((System.ComponentModel.ISupportInitialize)AliensHealthNumber).EndInit();
+            ((System.ComponentModel.ISupportInitialize)SpaceshipDamageNumber).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -217,5 +265,9 @@
         private Label AliensHealth;
         private Button SaveButton;
         private Button CancelButton;
+        private Label SpaceshipDamage;
+        private TrackBar SpaceshipDamageNumber;
+        private Label SpaceshipDamageTen;
+        private Label SpaceshipDamageHundred;
     }
 }

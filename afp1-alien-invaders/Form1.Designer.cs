@@ -28,10 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             StartButton = new Button();
             SettingsButton = new Button();
             ExitButton = new Button();
             Spaceship = new PictureBox();
+            bulletTimer = new System.Windows.Forms.Timer(components);
             ((System.ComponentModel.ISupportInitialize)Spaceship).BeginInit();
             SuspendLayout();
             // 
@@ -98,5 +100,6 @@
         private Button SettingsButton;
         private Button ExitButton;
         private PictureBox Spaceship;
+        private System.Windows.Forms.Timer bulletTimer;
     }
 }

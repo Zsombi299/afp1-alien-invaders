@@ -22,6 +22,7 @@ namespace afp1_alien_invaders
             Form1.ALIEN_COLS = AlienColsNumber.Value;
             Form1.ALIEN_ROWS = AlienRowsNumber.Value;
             Form1.ALIEN_HEALTH = AliensHealthNumber.Value;
+            Form1.SPACESHIP_DAMAGE = SpaceshipDamageNumber.Value;
             Close();
         }
 
